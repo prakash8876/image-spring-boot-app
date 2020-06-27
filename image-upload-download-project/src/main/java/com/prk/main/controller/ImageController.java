@@ -27,7 +27,9 @@ public class ImageController {
 	private ImageService service;
 	
 	@RequestMapping(value = "/")
-	public String workingOrNot() { return "Project working";} 
+	public String workingOrNot() { 
+		return "Project working";
+	} 
 	
 	// for uploading image to db
 	@PostMapping("/upload")
