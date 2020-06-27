@@ -29,6 +29,7 @@ public class ImageController {
 	@RequestMapping(value = "/")
 	public String workingOrNot() { return "Project working";} 
 	
+	// for uploading image to db
 	@PostMapping("/upload")
 	public ImageModel uploadImage(@RequestParam MultipartFile file) throws IOException {
 		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),file.getSize(), file.getBytes());
@@ -37,6 +38,7 @@ public class ImageController {
 		return savedImage;
 	}
 	
+	// retrieving image from db
 	@GetMapping(value = "/getimage/{id}")
 	public ImageModel getImage(@PathVariable("id") int id) throws IOException {
 		Optional<ImageModel> retrievedImage = service.getImageById(id);
@@ -45,12 +47,14 @@ public class ImageController {
 		return img;
 	}
 	
+	// deleting image from db
 	@DeleteMapping(value = "/delete/{id}")
 	public String deleteImageById(@PathVariable("id")int id) throws IOException {
 		service.deleteImageById(id);
 		return "Deleted";
 	}
 	
+	// updating or replacing image in db
 	@PutMapping("/replace/{id}")
 	public String replaceImage(@PathVariable("id") int id,@RequestParam MultipartFile file) throws IOException {
 		Optional<ImageModel> img = service.getImageById(id);

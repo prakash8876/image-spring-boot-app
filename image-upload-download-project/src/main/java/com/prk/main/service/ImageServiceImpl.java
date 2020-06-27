@@ -28,7 +28,6 @@ public class ImageServiceImpl implements ImageService {
 
 	@Override
 	public void deleteImageById(int id) {
-		// TODO Auto-generated method stub
 		repo.deleteById(id);
 	}
 

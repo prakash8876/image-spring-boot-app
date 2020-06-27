@@ -19,7 +19,8 @@ public class ImageModel {
 	private String type;
 	@Column(name="size")
 	private long size;
-	@Lob
+	
+	@Lob	// @Lob used for converting image into binary format
 	@Column(name="pic")
 	private byte[] img;
 	
